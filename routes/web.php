@@ -1,6 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\apostar;
+use App\Models\aventos;
+use App\Models\equipos;
+use App\Models\ligas;
+use App\Models\recargas;
+use App\Models\usuarios;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +22,29 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/apostar', function () {
+    return apostar::All();
+});
+Route::get('/aventos', function () {
+    return aventos::All();
+});
+Route::get('/equipos', function () {
+    return ligas::All();
+});
+Route::get('/ligas', function () {
+    return ligas::All();
+});
+Route::get('/recargas', function () {
+    return recargas::All();
+});
+Route::get('/usuarios', function () {
+    return usuarios::All();
+});
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
